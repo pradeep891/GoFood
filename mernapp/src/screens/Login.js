@@ -1,13 +1,9 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import '../App.css'
-// import backgroundVideo from '../video/backgroundVideo.mp4'
-// import ReactPlayer from 'react-player';
-
 
 export default function Login() {
     
-
     const [credential, setcredential] = useState({ email: "", password: "" })
     let navigate = useNavigate()
     async function handleSubmit(e) {
