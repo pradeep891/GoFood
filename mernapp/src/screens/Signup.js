@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 export default function Signup() {
+    let navigate = useNavigate()
     const [credential, setcredential] = useState({ name: "", email: "", password: "", geolocation: "" })
     async function handleSubmit(e) {
         e.preventDefault();
@@ -22,6 +23,14 @@ export default function Signup() {
 
         if (!tempjson.success) {
             alert(`Enter valid credentials`)
+        }
+
+        //go to home page
+        else if (tempjson.success) {
+            localStorage.setItem("userEmail", credential.email);
+            localStorage.setItem("authToken", tempjson.authToken);
+            console.log(localStorage.getItem("authToken"))
+            navigate('/')
         }
     }
     const onchange = (event) => {
