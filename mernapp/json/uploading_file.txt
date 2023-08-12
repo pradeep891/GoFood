@@ -1,0 +1,5 @@
+Adding database from a file in mongodb Atlas
+
+mongoimport --uri mongodb+srv://goFood:goFood123@cluster0.rqiipd4.mongodb.net/goFood --collection food_items --jsonArray --file "C:\Users\krpra\OneDrive\Desktop\project\GoFood\mernapp\json\foodData2.json"
+
+mongoimport --uri mongodb+srv://goFood:goFood123@cluster0.rqiipd4.mongodb.net/goFood --collection food_category --jsonArray --file "C:\Users\krpra\OneDrive\Desktop\project\GoFood\mernapp\json\foodCategory.json"
