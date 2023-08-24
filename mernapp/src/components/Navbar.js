@@ -16,9 +16,10 @@ export default function Navbar() {
         localStorage.removeItem('authToken');
         navigate('/login')
     }
+    const customBackgroundColor = '#183D3D';
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-success">
+            <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: customBackgroundColor }}>
                 <div className='container-fluid'>
                     <Link className="navbar-brand fs-1 fst-italic" to="/">GoFood</Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

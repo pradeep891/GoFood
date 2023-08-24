@@ -3,6 +3,9 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Card from '../components/Card'
 import { Link } from 'react-router-dom'
+import img1 from '../images/image-pizza.jpg'
+import img2 from '../images/image-burger.jpg'
+import img3 from '../images/image-rice.jpg'
 
 export default function Home() {
 
@@ -28,14 +31,19 @@ export default function Home() {
         loadData()
     }, [])
 
+    const bgExternal = '#93B1A6'
+    const bgInternal = '#5C8374'
+    const bgHeading = '#183D3D'
+    const bgCard = '#040D12'
+
     return (
-        <div>
+        <div style={{ backgroundColor: bgExternal }}>
             <Navbar />
 
-            {/* Carousel */}
-            <div id="carouselExampleControls" className="carousel slide" data-ride="carousel" style={{ objectFit: 'contain !important' }}>
-                <div className="carousel-inner" id='carousel'>
 
+
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner" id='carousel'>
                     <div className='carousel-caption' style={{ zIndex: '10' }}>
                         <div className="d-flex justify-content-center">
                             <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value={search} onChange={(e) => { setsearch(e.target.value) }} />
@@ -44,35 +52,39 @@ export default function Home() {
 
                     </div>
                     <div className="carousel-item active">
-                        <img className="d-block w-100" src="https://source.unsplash.com/random/400×300/?burger" style={{ filter: 'brightness(30%)s' }} alt="First slide" />
+                        <img className="d-block w-100" src={img2} style={{ filter: 'brightness(30%)s' }} alt="First slide" />
                     </div>
                     <div className="carousel-item">
-                        <img className="d-block w-100" src="https://source.unsplash.com/random/400×300/?pastry" alt="Second slide" />
+                        <img className="d-block w-100" src={img1} alt="Second slide" />
                     </div>
                     <div className="carousel-item">
-                        <img className="d-block w-100" src="https://source.unsplash.com/random/400×300/?pizza" alt="Third slide" />
+                        <img className="d-block w-100" src={img3} alt="Third slide" />
                     </div>
                 </div>
-                <Link className="carousel-control-prev" to="#carouselExampleControls" role="button" data-slide="prev">
+                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="visually hidden">Previous</span>
-                </Link>
-                <Link className="carousel-control-next" to="#carouselExampleControls" role="button" data-slide="next">
+                    <span className="visually-hidden">Previous</span>
+                </button>
+                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
                     <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="sr-only">Next</span>
-                </Link>
+                    <span className="visually-hidden">Next</span>
+                </button>
             </div>
-
-
 
             <div className='container'>
                 {
                     foodCat !== []
                         ? foodCat.map((data) => {
                             return (
-                                <div className='row mb-3'>
+                                <div className='row m-5 p-4 ' style={{
+                                    backgroundColor: bgInternal,
+                                    border: '2px solid',
+                                    borderColor: bgCard,
+                                    borderTopLeftRadius: '30px',
+                                    borderBottomRightRadius: '30px',
+                                }}>
 
-                                    <div key={data._id} className="fs-3 m-3">
+                                    <div key={data._id} className="fs-3" style={{ backgroundColor: bgHeading }}>
                                         {data.CategoryName}
                                     </div>
 
@@ -86,9 +98,9 @@ export default function Home() {
                                                 .map(filterItems => {
                                                     return (
                                                         <div key={filterItems._id} className='col-12 col-md-6 col-lg-3'>
-                                                            <Card foodItem = {filterItems}
+                                                            <Card foodItem={filterItems}
                                                                 options={filterItems.options[0]}
-                                                               />
+                                                            />
                                                         </div>
                                                     )
                                                 })

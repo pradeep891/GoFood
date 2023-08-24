@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import '../App.css'
+import bg from '../images/bg-login.png'
 
 export default function Login() {
-    
+
     const [credential, setcredential] = useState({ email: "", password: "" })
     let navigate = useNavigate()
     async function handleSubmit(e) {
@@ -39,14 +40,11 @@ export default function Login() {
         setcredential({ ...credential, [event.target.name]: event.target.value })
     }
 
-
-      const imgurl = 'https://img.freepik.com/free-photo/vegetables-set-left-black-slate_1220-685.jpg?w=1380&t=st=1691755107~exp=1691755707~hmac=e411c48d7ecc091af03cec6a119f91c09664ff101a66d9998924beda0318fa35'
     return (
 
         <>
-
             <div className='d-flex flex-column align-items-center justify-content-center' style={{
-                backgroundImage: `url(${imgurl})`,
+                backgroundImage: `URL(${bg})`,
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
@@ -54,23 +52,9 @@ export default function Login() {
                 height: '100vh'
             }}>
 
-
-{/* <ReactPlayer
-      className='background-video'
-        url={backgroundVideo}
-        playing
-        loop
-        muted
-        width="100%"
-        height="100%"
-      /> */}
-
-
-    
-
                 <div>
                     <h1>Welcome to GoFood...</h1>
-                    
+
                     <form onSubmit={handleSubmit}>
 
                         <div className="form-group my-4">
