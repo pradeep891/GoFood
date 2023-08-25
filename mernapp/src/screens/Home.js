@@ -84,8 +84,8 @@ export default function Home() {
                                     borderBottomRightRadius: '30px',
                                 }}>
 
-                                    <div key={data._id} className="fs-3" style={{ backgroundColor: bgHeading }}>
-                                        {data.CategoryName}
+                                    <div key={data._id} className="fs-3" >
+                                        <span className='rounded rouned-pill px-3 py-1 border border-success' style={{ backgroundColor: bgHeading}}> {data.CategoryName}  </span> 
                                     </div>
 
                                     <hr />

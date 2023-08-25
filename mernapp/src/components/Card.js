@@ -63,7 +63,7 @@ export default function Card(props) {
 
 
                     <div className='d-inline h-100 fs-5'>
-                        Rs. {finalPrice}
+                    ₹{finalPrice}
                     </div>
                 </div>
 
